@@ -5,4 +5,4 @@ Story: https://www.angularspace.com/built-rxjs-visualizer-in-4-hours-with-ai-no-
 
 Feel free to contribute !!!
 
-Deployed to: rxvisualizer.com <----
+Deployed to: [rxvisualizer.com](http://rxvisualizer.com)  <----
