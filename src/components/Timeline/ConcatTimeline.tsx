@@ -10,8 +10,8 @@ interface TimelineProps {
   isOutput?: boolean;
 }
 
-export const ConcatTimeline: React.FC<TimelineProps> = ({ 
-  marbles = [], 
+export const ConcatTimeline: React.FC<TimelineProps> = ({
+  marbles = [],
   label,
   streamId,
   isOutput = false
@@ -25,7 +25,7 @@ export const ConcatTimeline: React.FC<TimelineProps> = ({
     <div className="relative h-20 flex items-center w-full">
       <TimelineLabel label={label} streamId={streamId} />
       <div className="flex-1 relative">
-        <div className="absolute left-0 top-1/2 w-full h-0.5 bg-gray-300" />
+        <div className="absolute left-0 top-1/2 w-full h-0.5 bg-border" />
         <div className="absolute inset-0">
           {marbles?.map((marble) => (
             marble && <Marble key={marble.id} marble={marble} />

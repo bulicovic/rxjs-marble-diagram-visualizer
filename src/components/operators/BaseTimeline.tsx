@@ -21,7 +21,7 @@ export const BaseTimeline: React.FC<BaseTimelineProps> = ({
   isStream3Enabled
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8 space-y-8">
+    <div className="bg-secondary rounded-lg shadow-banner p-8 space-y-8">
       <Timeline marbles={stream1Marbles} label="Stream 1" streamId={1} />
       <Timeline marbles={stream2Marbles} label="Stream 2" streamId={2} />
       {isStream3Enabled && (

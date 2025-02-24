@@ -24,7 +24,7 @@ export const CombineLatestTimelineLabel: React.FC<TimelineLabelProps> = ({ label
       case 2:
         return 'bg-red-500 hover:bg-red-600';
       case 3:
-        return 'bg-purple-500 hover:bg-purple-600';
+        return 'bg-purple hover:bg-purple-600';
       default:
         return 'bg-gray-500 hover:bg-gray-600';
     }
@@ -45,7 +45,7 @@ export const CombineLatestTimelineLabel: React.FC<TimelineLabelProps> = ({ label
           <Plus size={18} className="text-white" />
         </button>
       )}
-      <span className="w-24 text-sm text-gray-600">{label}</span>
+      <span className="w-24 text-sm text-text-muted">{label}</span>
     </div>
   );
 };

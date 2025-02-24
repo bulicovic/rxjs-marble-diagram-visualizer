@@ -34,7 +34,7 @@ export const Timeline: React.FC<TimelineProps> = ({
 
   return (
     <div className="relative h-24">
-      <div className="absolute left-0 top-1/2 w-full h-0.5 bg-gray-300" />
+      <div className="absolute left-0 top-1/2 w-full h-0.5 bg-border" />
       <TimelineLabel label={label} streamId={streamId} />
       <div className="absolute inset-0">
         {marbles?.map((marble) => (
