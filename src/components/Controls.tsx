@@ -9,7 +9,7 @@ const operators: RxJSOperator[] = ['map', 'filter', 'merge', 'combineLatest', 's
 const multiStreamOperators = ['merge', 'combineLatest'];
 
 export const Controls: React.FC = () => {
-  const { 
+  const {
     currentOperator,
     setOperator,
     resetPipeline,
@@ -21,13 +21,13 @@ export const Controls: React.FC = () => {
   const showStream3Toggle = multiStreamOperators.includes(currentOperator);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-lg z-[9999]">
+    <div className="fixed bottom-0 left-0 right-0 bg-secondary border-t border-gray-200 p-4 shadow-banner z-[9999]">
       <div className="max-w-4xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-4">
           {showStream3Toggle && (
             <button
               onClick={toggleStream3}
-              className="px-4 py-2 bg-gray-500 text-sm text-white rounded-md hover:bg-gray-600 transition-colors flex items-center gap-2"
+              className="px-4 py-2 bg-gray-500 text-sm text-secondary rounded-md hover:bg-gray-600 transition-colors flex items-center gap-2"
               title={isStream3Enabled ? "Disable Stream 3" : "Enable Stream 3"}
             >
               {isStream3Enabled ? <Minus size={16} /> : <Plus size={16} />} Stream 3
@@ -36,7 +36,7 @@ export const Controls: React.FC = () => {
 
           <button
             onClick={resetPipeline}
-            className="p-2 rounded-md hover:bg-gray-100 transition-colors text-gray-600"
+            className="p-2 rounded-md hover:bg-primary transition-colors text-text-muted"
             title="Reset Pipeline"
           >
             <RotateCcw size={20} />
@@ -44,11 +44,11 @@ export const Controls: React.FC = () => {
 
           <SpeedControl />
         </div>
-        
+
         <select
           value={currentOperator}
           onChange={(e) => setOperator(e.target.value as RxJSOperator)}
-          className="px-3 py-2 border rounded-md bg-white hover:bg-gray-50 transition-colors"
+          className="px-3 py-2 border text-text rounded-md bg-secondary hover:bg-primary transition-colors"
         >
           {operators.map((op) => (
             <option key={op} value={op}>

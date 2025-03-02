@@ -28,7 +28,7 @@ export const MergeTimeline: React.FC<TimelineProps> = ({
       <MergeTimelineLabel label={label} streamId={streamId} />
       <div className="flex-1 relative h-full">
         {/* Horizontal line */}
-        <div className="absolute left-0 top-1/2 w-full h-0.5 bg-gray-300" />
+        <div className="absolute left-0 top-1/2 w-full h-0.5 bg-border" />
         
         {/* Marbles container */}
         <div className="absolute inset-0">

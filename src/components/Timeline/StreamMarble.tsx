@@ -16,11 +16,11 @@ export const StreamMarble: React.FC<StreamMarbleProps> = ({ marble, onCrossLine 
     let hasCrossedLine = false;
     const LINE_POSITION = 0.35; // 35% - matches the line position in App.tsx
     const TOTAL_DURATION = 3.2; // Base duration in seconds
-    
+
     const animate = async () => {
       await controls.start({
         left: "100%",
-        transition: { 
+        transition: {
           duration: TOTAL_DURATION / speed,
           ease: "linear"
         },
@@ -46,8 +46,8 @@ export const StreamMarble: React.FC<StreamMarbleProps> = ({ marble, onCrossLine 
       initial={{ left: "0%" }}
       animate={controls}
     >
-      <div 
-        className="w-8 h-8 rounded-full flex items-center justify-center text-white shadow-lg"
+      <div
+        className="w-8 h-8 rounded-full flex items-center justify-center text-white shadow-banner"
         style={{ backgroundColor: marble.color }}
       >
         {marble.value}

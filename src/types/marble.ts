@@ -10,9 +10,10 @@ export interface Marble {
   };
 }
 
-export type RxJSOperator = 
+export type RxJSOperator =
   | 'map'
   | 'filter'
   | 'merge'
   | 'combineLatest'
+  | 'concat'
   | 'scan';

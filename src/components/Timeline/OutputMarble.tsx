@@ -9,7 +9,7 @@ interface OutputMarbleProps {
 
 export const OutputMarble: React.FC<OutputMarbleProps> = ({ marble }) => {
   const { speed } = useMarbleStore();
-  const displayValue = marble.sourceValues 
+  const displayValue = marble.sourceValues
     ? `${marble.sourceValues.stream1}${marble.sourceValues.stream2}${marble.sourceValues.stream3}`
     : marble.value;
 
@@ -17,7 +17,7 @@ export const OutputMarble: React.FC<OutputMarbleProps> = ({ marble }) => {
     <motion.div
       className="absolute top-1/2 -translate-y-1/2"
       initial={{ left: "35%", opacity: 0, scale: 0.5 }}
-      animate={{ 
+      animate={{
         left: "100%",
         opacity: 1,
         scale: 1,
@@ -28,8 +28,8 @@ export const OutputMarble: React.FC<OutputMarbleProps> = ({ marble }) => {
         }
       }}
     >
-      <div 
-        className="w-8 h-8 rounded-full flex items-center justify-center text-white shadow-lg"
+      <div
+        className="w-8 h-8 rounded-full flex items-center justify-center text-white shadow-banner"
         style={{ backgroundColor: marble.color }}
       >
         {displayValue}

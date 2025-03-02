@@ -28,7 +28,7 @@ export const MapTimelineLabel: React.FC<TimelineLabelProps> = ({ label, streamId
           <Plus size={18} className="text-white" />
         </button>
       )}
-      <span className="w-24 text-sm text-gray-600">{label}</span>
+      <span className="w-24 text-sm text-text-muted">{label}</span>
     </div>
   );
 };

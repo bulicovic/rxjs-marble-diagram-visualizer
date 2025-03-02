@@ -1,7 +1,7 @@
 import React from 'react';
 import { Plus } from 'lucide-react';
 import { useMarbleStore } from '../../store/marbleStore';
-import { 
+import {
   generateMapMarble,
   generateFilterMarble,
   generateMergeMarble,
@@ -66,13 +66,13 @@ export const TimelineLabel: React.FC<TimelineLabelProps> = ({ label, streamId })
       {streamId && (streamId !== 3 || (streamId === 3 && isStream3Enabled)) && (
         <button
           onClick={handleAddMarble}
-          className={`p-1.5 rounded-full transition-colors ${getButtonColor(streamId)}`}
+          className={`p-1.5  bg-purple-600 rounded-full transition-colors ${getButtonColor(streamId)}`}
           title={`Add to ${label}`}
         >
-          <Plus size={18} className="text-white" />
+          <Plus size={18} className="text-secondary" />
         </button>
       )}
-      <span className="w-24 text-sm text-gray-600">{label}</span>
+      <span className="w-24 text-sm text-text-muted">{label}</span>
     </div>
   );
 };
