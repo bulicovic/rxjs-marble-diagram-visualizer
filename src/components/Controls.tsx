@@ -21,7 +21,7 @@ export const Controls: React.FC = () => {
   const showStream3Toggle = multiStreamOperators.includes(currentOperator);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-secondary border-t border-gray-200 p-4 shadow-banner z-[9999]">
+    <div className="fixed bottom-0 left-0 right-0 bg-secondary border-t border-gray-200 p-4 shadow-banner z-9999">
       <div className="max-w-4xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-4">
           {showStream3Toggle && (
