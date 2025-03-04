@@ -1,4 +1,3 @@
-import React from 'react';
 import { Timeline } from './components/Timeline';
 import { Controls } from './components/Controls';
 import { OperatorDisplay } from './components/OperatorDisplay';
@@ -12,7 +11,6 @@ function App() {
     stream2Marbles,
     stream3Marbles,
     outputMarbles,
-    currentOperator
   } = useMarbleStore();
 
   // Initialize marble streams
@@ -69,7 +67,7 @@ function App() {
                 <Timeline marbles={stream2Marbles} label="Stream 2" streamId={2} />
                 <Timeline marbles={stream3Marbles} label="Stream 3" streamId={3} />
 
-                <OperatorDisplay operator={currentOperator} />
+                <OperatorDisplay />
 
                 <Timeline marbles={outputMarbles} label="Output" isOutput />
               </div>
