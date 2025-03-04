@@ -13,6 +13,7 @@ interface MarbleState {
   stream2$: Subject<Marble>;
   stream3$: Subject<Marble>;
   isStream3Enabled: boolean;
+  isMultipleStreamOperator: boolean;
   speed: number;
   addMarble: (streamId: number, marble: Marble) => void;
   addOutputMarble: (marble: Marble) => void;
@@ -31,13 +32,18 @@ const createNewSubjects = () => ({
 });
 
 const initialSubjects = createNewSubjects();
+const defaultOperator: RxJSOperator = 'map';
 
+const isMultipleStreamOperator = (operator: RxJSOperator) => {
+  return !(operator === 'map' || operator === 'filter' || operator === 'scan');
+};
 export const useMarbleStore = create<MarbleState>(set => ({
   stream1Marbles: [],
   stream2Marbles: [],
   stream3Marbles: [],
   outputMarbles: [],
-  currentOperator: 'map',
+  currentOperator: defaultOperator,
+  isMultipleStreamOperator: isMultipleStreamOperator(defaultOperator),
   ...initialSubjects,
   isStream3Enabled: false,
   speed: 1,
@@ -106,6 +112,7 @@ export const useMarbleStore = create<MarbleState>(set => ({
 
       return {
         currentOperator: operator,
+        isMultipleStreamOperator: isMultipleStreamOperator(operator),
         outputMarbles: [],
         stream1Marbles: [],
         stream2Marbles: [],

@@ -6,7 +6,13 @@ import { useMarbleStreams } from './hooks/useMarbleStreams';
 import { ThemeToggle } from './components/ThemeToggle';
 
 function App() {
-  const { stream1Marbles, stream2Marbles, stream3Marbles, outputMarbles } = useMarbleStore();
+  const {
+    stream1Marbles,
+    stream2Marbles,
+    stream3Marbles,
+    outputMarbles,
+    isMultipleStreamOperator,
+  } = useMarbleStore();
 
   // Initialize marble streams
   useMarbleStreams();
@@ -65,8 +71,12 @@ function App() {
             {/* Timeline container */}
             <div className="space-y-8 relative z-20">
               <Timeline marbles={stream1Marbles} label="Stream 1" streamId={1} />
-              <Timeline marbles={stream2Marbles} label="Stream 2" streamId={2} />
-              <Timeline marbles={stream3Marbles} label="Stream 3" streamId={3} />
+              {isMultipleStreamOperator && (
+                <Timeline marbles={stream2Marbles} label="Stream 2" streamId={2} />
+              )}
+              {isMultipleStreamOperator && (
+                <Timeline marbles={stream3Marbles} label="Stream 3" streamId={3} />
+              )}
 
               <OperatorDisplay />
 
