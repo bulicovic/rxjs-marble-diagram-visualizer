@@ -9,13 +9,8 @@ const operators: RxJSOperator[] = ['map', 'filter', 'merge', 'combineLatest', 's
 const multiStreamOperators = ['merge', 'combineLatest'];
 
 export const Controls: React.FC = () => {
-  const {
-    currentOperator,
-    setOperator,
-    resetPipeline,
-    isStream3Enabled,
-    toggleStream3
-  } = useMarbleStore();
+  const { currentOperator, setOperator, resetPipeline, isStream3Enabled, toggleStream3 } =
+    useMarbleStore();
 
   // Only show Stream 3 toggle for operators that support it
   const showStream3Toggle = multiStreamOperators.includes(currentOperator);
@@ -28,7 +23,7 @@ export const Controls: React.FC = () => {
             <button
               onClick={toggleStream3}
               className="px-4 py-2 bg-gray-500 text-sm text-secondary rounded-md hover:bg-gray-600 transition-colors flex items-center gap-2"
-              title={isStream3Enabled ? "Disable Stream 3" : "Enable Stream 3"}
+              title={isStream3Enabled ? 'Disable Stream 3' : 'Enable Stream 3'}
             >
               {isStream3Enabled ? <Minus size={16} /> : <Plus size={16} />} Stream 3
             </button>
@@ -47,10 +42,10 @@ export const Controls: React.FC = () => {
 
         <select
           value={currentOperator}
-          onChange={(e) => setOperator(e.target.value as RxJSOperator)}
+          onChange={e => setOperator(e.target.value as RxJSOperator)}
           className="px-3 py-2 border text-text rounded-md bg-secondary hover:bg-primary transition-colors"
         >
-          {operators.map((op) => (
+          {operators.map(op => (
             <option key={op} value={op}>
               {op}
             </option>

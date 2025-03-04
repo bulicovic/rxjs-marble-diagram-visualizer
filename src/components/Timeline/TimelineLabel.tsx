@@ -7,8 +7,8 @@ import {
   generateMergeMarble,
   generateCombineLatestMarble,
   generateConcatMarble,
-  generateScanMarble
-} from '../../utils/marbleUtils/index';
+  generateScanMarble,
+} from '../../utils/marbleUtils';
 
 interface TimelineLabelProps {
   label: string;

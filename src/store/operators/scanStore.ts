@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { BaseOperatorState, createNewSubjects } from './baseOperatorStore';
 import { resetScanIndexes } from '../../utils/marbleUtils';
 
-export const useScanStore = create<BaseOperatorState>((set) => ({
+export const useScanStore = create<BaseOperatorState>(set => ({
   stream1Marbles: [],
   stream2Marbles: [],
   stream3Marbles: [],
@@ -14,11 +14,11 @@ export const useScanStore = create<BaseOperatorState>((set) => ({
   addMarble: (streamId, marble) => {
     if (streamId !== 1) return; // Only allow Stream 1 marbles
 
-    set((state) => {
+    set(state => {
       const newMarble = {
         ...marble,
         timestamp: Date.now(),
-        id: marble.id || Math.random().toString(36).substr(2)
+        id: marble.id || Math.random().toString(36).substr(2),
       };
 
       state.stream1$.next(newMarble);
@@ -26,24 +26,25 @@ export const useScanStore = create<BaseOperatorState>((set) => ({
     });
   },
 
-  addOutputMarble: (marble) => set((state) => ({ 
-    outputMarbles: [...state.outputMarbles, marble] 
-  })),
+  addOutputMarble: marble =>
+    set(state => ({
+      outputMarbles: [...state.outputMarbles, marble],
+    })),
 
-  setSpeed: (speed) => set({ speed }),
+  setSpeed: speed => set({ speed }),
 
   clearMarbles: () => {
     resetScanIndexes();
-    set({ 
+    set({
       stream1Marbles: [],
       stream2Marbles: [],
       stream3Marbles: [],
-      outputMarbles: []
+      outputMarbles: [],
     });
   },
 
   resetPipeline: () => {
-    set((state) => {
+    set(state => {
       state.stream1$.complete();
       state.stream2$.complete();
       state.stream3$.complete();
@@ -53,11 +54,11 @@ export const useScanStore = create<BaseOperatorState>((set) => ({
         stream1Marbles: [],
         stream2Marbles: [],
         stream3Marbles: [],
-        outputMarbles: []
+        outputMarbles: [],
       };
     });
   },
 
   // Remove toggleStream3 since Scan only uses Stream 1
-  toggleStream3: () => set((state) => state) // No-op
+  toggleStream3: () => set(state => state), // No-op
 }));

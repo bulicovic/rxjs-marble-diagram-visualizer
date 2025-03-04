@@ -12,7 +12,7 @@ export const filterOperator = (
     map(marble => ({
       ...marble,
       id: `${marble.id}-filtered`,
-      color: 'rgb(34, 197, 94)'
+      color: 'rgb(34, 197, 94)',
     }))
   );
 };

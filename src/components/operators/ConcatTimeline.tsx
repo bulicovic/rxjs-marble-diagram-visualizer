@@ -4,13 +4,8 @@ import { useConcatStore } from '../../store/operators/concatStore';
 import { useConcatStream } from '../../hooks/operators/useConcatStream';
 
 export const ConcatTimeline: React.FC = () => {
-  const { 
-    stream1Marbles,
-    stream2Marbles,
-    stream3Marbles,
-    outputMarbles,
-    isStream3Enabled
-  } = useConcatStore();
+  const { stream1Marbles, stream2Marbles, stream3Marbles, outputMarbles, isStream3Enabled } =
+    useConcatStore();
 
   useConcatStream();
 

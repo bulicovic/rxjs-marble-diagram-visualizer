@@ -5,15 +5,9 @@ export const concatOperator = (
   stream1$: Observable<Marble>,
   stream2$: Observable<Marble>
 ): Observable<Marble> => {
-  const stream1WithEnd$ = stream1$.pipe(
-    take(3),
-    endWith(null)
-  );
+  const stream1WithEnd$ = stream1$.pipe(take(3), endWith(null));
 
-  const stream2WithEnd$ = stream2$.pipe(
-    take(3),
-    endWith(null)
-  );
+  const stream2WithEnd$ = stream2$.pipe(take(3), endWith(null));
 
   return concat(stream1WithEnd$, stream2WithEnd$).pipe(
     delay(1200), // Reduced from 1500ms to 1200ms
@@ -22,7 +16,7 @@ export const concatOperator = (
       return {
         ...marble,
         id: `${marble.id}-concat`,
-        color: 'rgb(34, 197, 94)'
+        color: 'rgb(34, 197, 94)',
       };
     })
   );

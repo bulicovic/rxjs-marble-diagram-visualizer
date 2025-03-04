@@ -4,13 +4,8 @@ import { useFilterStore } from '../../store/operators/filterStore';
 import { useFilterStream } from '../../hooks/operators/useFilterStream';
 
 export const FilterTimeline: React.FC = () => {
-  const { 
-    stream1Marbles,
-    stream2Marbles,
-    stream3Marbles,
-    outputMarbles,
-    isStream3Enabled
-  } = useFilterStore();
+  const { stream1Marbles, stream2Marbles, stream3Marbles, outputMarbles, isStream3Enabled } =
+    useFilterStore();
 
   useFilterStream();
 

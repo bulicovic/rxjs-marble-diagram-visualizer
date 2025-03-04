@@ -11,10 +11,11 @@ export const mapOperator = (
     map(marble => ({
       ...marble,
       id: `${marble.id}-mapped`,
-      value: typeof marble.value === 'string' 
-        ? marble.value.toString().toLowerCase()
-        : marble.value * 10,
-      color: 'rgb(34, 197, 94)'
+      value:
+        typeof marble.value === 'string'
+          ? marble.value.toString().toLowerCase()
+          : marble.value * 10,
+      color: 'rgb(34, 197, 94)',
     }))
   );
 };

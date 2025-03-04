@@ -1,4 +1,4 @@
-import { 
+import {
   generateMapMarble,
   generateFilterMarble,
   generateMergeMarble,
@@ -10,7 +10,7 @@ import {
   resetMergeIndexes,
   resetCombineLatestIndexes,
   resetConcatIndexes,
-  resetScanIndexes
+  resetScanIndexes,
 } from './marbleUtils/index';
 
 // Re-export all marble utilities
@@ -26,7 +26,7 @@ export {
   resetMergeIndexes,
   resetCombineLatestIndexes,
   resetConcatIndexes,
-  resetScanIndexes
+  resetScanIndexes,
 };
 
 // Combined reset function

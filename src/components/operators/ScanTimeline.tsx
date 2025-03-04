@@ -4,13 +4,8 @@ import { useScanStore } from '../../store/operators/scanStore';
 import { useScanStream } from '../../hooks/operators/useScanStream';
 
 export const ScanTimeline: React.FC = () => {
-  const { 
-    stream1Marbles,
-    stream2Marbles,
-    stream3Marbles,
-    outputMarbles,
-    isStream3Enabled
-  } = useScanStore();
+  const { stream1Marbles, stream2Marbles, stream3Marbles, outputMarbles, isStream3Enabled } =
+    useScanStore();
 
   useScanStream();
 

@@ -4,13 +4,8 @@ import { useMapStore } from '../../store/operators/mapStore';
 import { useMapStream } from '../../hooks/operators/useMapStream';
 
 export const MapTimeline: React.FC = () => {
-  const { 
-    stream1Marbles,
-    stream2Marbles,
-    stream3Marbles,
-    outputMarbles,
-    isStream3Enabled
-  } = useMapStore();
+  const { stream1Marbles, stream2Marbles, stream3Marbles, outputMarbles, isStream3Enabled } =
+    useMapStore();
 
   useMapStream();
 

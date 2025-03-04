@@ -1,19 +1,19 @@
-import {create} from "zustand";
+import { create } from 'zustand';
 
-type Theme = "dark" | "light";
+type Theme = 'dark' | 'light';
 
 interface ThemeStore {
-    theme: Theme
-    toggleTheme: () => void;
+  theme: Theme;
+  toggleTheme: () => void;
 }
 
-export const useThemeStore = create<ThemeStore>((set) => ({
-    theme: (localStorage.getItem("theme") as Theme) || "light",
+export const useThemeStore = create<ThemeStore>(set => ({
+  theme: (localStorage.getItem('theme') as Theme) || 'light',
 
-    toggleTheme: () =>
-        set((state) => {
-            const newTheme: Theme = state.theme === "dark" ? "light" : "dark";
-            localStorage.setItem("theme", newTheme);
-            return { theme: newTheme };
-        }),
+  toggleTheme: () =>
+    set(state => {
+      const newTheme: Theme = state.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', newTheme);
+      return { theme: newTheme };
+    }),
 }));

@@ -3,14 +3,14 @@ import { useMarbleStore } from '../store/marbleStore';
 import { applyOperator } from '../utils/operators';
 
 export const useMarbleStreams = () => {
-  const { 
+  const {
     stream1$,
     stream2$,
     stream3$,
     currentOperator,
     addOutputMarble,
     isStream3Enabled,
-    speed
+    speed,
   } = useMarbleStore();
 
   useEffect(() => {
@@ -31,8 +31,8 @@ export const useMarbleStreams = () => {
           });
         }
       },
-      error: (err) => console.error('Stream error:', err),
-      complete: () => console.log('Stream completed')
+      error: err => console.error('Stream error:', err),
+      complete: () => console.log('Stream completed'),
     });
 
     return () => {

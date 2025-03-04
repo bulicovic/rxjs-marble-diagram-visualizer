@@ -10,11 +10,11 @@ interface TimelineProps {
   isOutput?: boolean;
 }
 
-export const FilterTimeline: React.FC<TimelineProps> = ({ 
-  marbles = [], 
+export const FilterTimeline: React.FC<TimelineProps> = ({
+  marbles = [],
   label,
   streamId,
-  isOutput = false
+  isOutput = false,
 }) => {
   // Filter only shows Stream 1
   if (streamId && streamId !== 1 && !isOutput) {
@@ -27,12 +27,10 @@ export const FilterTimeline: React.FC<TimelineProps> = ({
       <div className="flex-1 relative h-full">
         {/* Horizontal line */}
         <div className="absolute left-0 top-1/2 w-full h-0.5 bg-border" />
-        
+
         {/* Marbles container */}
         <div className="absolute inset-0">
-          {marbles?.map((marble) => (
-            marble && <Marble key={marble.id} marble={marble} />
-          ))}
+          {marbles?.map(marble => marble && <Marble key={marble.id} marble={marble} />)}
         </div>
       </div>
     </div>

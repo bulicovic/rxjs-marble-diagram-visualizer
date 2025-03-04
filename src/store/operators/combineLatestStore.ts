@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { BaseOperatorState, createNewSubjects } from './baseOperatorStore';
 import { resetIndexes } from '../../utils/marbleUtils';
 
-export const useCombineLatestStore = create<BaseOperatorState>((set) => ({
+export const useCombineLatestStore = create<BaseOperatorState>(set => ({
   stream1Marbles: [],
   stream2Marbles: [],
   stream3Marbles: [],
@@ -12,11 +12,11 @@ export const useCombineLatestStore = create<BaseOperatorState>((set) => ({
   speed: 1,
 
   addMarble: (streamId, marble) => {
-    set((state) => {
+    set(state => {
       const newMarble = {
         ...marble,
         timestamp: Date.now(),
-        id: marble.id || Math.random().toString(36).substr(2)
+        id: marble.id || Math.random().toString(36).substr(2),
       };
 
       switch (streamId) {
@@ -38,24 +38,25 @@ export const useCombineLatestStore = create<BaseOperatorState>((set) => ({
     });
   },
 
-  addOutputMarble: (marble) => set((state) => ({ 
-    outputMarbles: [...state.outputMarbles, marble] 
-  })),
+  addOutputMarble: marble =>
+    set(state => ({
+      outputMarbles: [...state.outputMarbles, marble],
+    })),
 
-  setSpeed: (speed) => set({ speed }),
+  setSpeed: speed => set({ speed }),
 
   clearMarbles: () => {
     resetIndexes();
-    set({ 
+    set({
       stream1Marbles: [],
       stream2Marbles: [],
       stream3Marbles: [],
-      outputMarbles: []
+      outputMarbles: [],
     });
   },
 
   resetPipeline: () => {
-    set((state) => {
+    set(state => {
       state.stream1$.complete();
       state.stream2$.complete();
       state.stream3$.complete();
@@ -65,23 +66,24 @@ export const useCombineLatestStore = create<BaseOperatorState>((set) => ({
         stream1Marbles: [],
         stream2Marbles: [],
         stream3Marbles: [],
-        outputMarbles: []
+        outputMarbles: [],
       };
     });
   },
 
-  toggleStream3: () => set((state) => {
-    state.stream1$.complete();
-    state.stream2$.complete();
-    state.stream3$.complete();
-    resetIndexes();
-    return {
-      ...createNewSubjects(),
-      isStream3Enabled: !state.isStream3Enabled,
-      stream1Marbles: [],
-      stream2Marbles: [],
-      stream3Marbles: [],
-      outputMarbles: []
-    };
-  })
+  toggleStream3: () =>
+    set(state => {
+      state.stream1$.complete();
+      state.stream2$.complete();
+      state.stream3$.complete();
+      resetIndexes();
+      return {
+        ...createNewSubjects(),
+        isStream3Enabled: !state.isStream3Enabled,
+        stream1Marbles: [],
+        stream2Marbles: [],
+        stream3Marbles: [],
+        outputMarbles: [],
+      };
+    }),
 }));

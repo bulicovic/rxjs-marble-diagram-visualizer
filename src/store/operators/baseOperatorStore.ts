@@ -22,5 +22,5 @@ export interface BaseOperatorState {
 export const createNewSubjects = () => ({
   stream1$: new Subject<Marble>(),
   stream2$: new Subject<Marble>(),
-  stream3$: new Subject<Marble>()
+  stream3$: new Subject<Marble>(),
 });

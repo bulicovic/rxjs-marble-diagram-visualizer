@@ -27,12 +27,12 @@ interface MarbleState {
 const createNewSubjects = () => ({
   stream1$: new Subject<Marble>(),
   stream2$: new Subject<Marble>(),
-  stream3$: new Subject<Marble>()
+  stream3$: new Subject<Marble>(),
 });
 
 const initialSubjects = createNewSubjects();
 
-export const useMarbleStore = create<MarbleState>((set) => ({
+export const useMarbleStore = create<MarbleState>(set => ({
   stream1Marbles: [],
   stream2Marbles: [],
   stream3Marbles: [],
@@ -41,17 +41,17 @@ export const useMarbleStore = create<MarbleState>((set) => ({
   ...initialSubjects,
   isStream3Enabled: false,
   speed: 1,
-  
+
   addMarble: (streamId, marble) => {
     if (!marble || marble.value === undefined) return;
-    
-    set((state) => {
+
+    set(state => {
       const newMarble = {
         ...marble,
         timestamp: Date.now(),
-        id: marble.id || Math.random().toString(36).substr(2)
+        id: marble.id || Math.random().toString(36).substr(2),
       };
-      
+
       switch (streamId) {
         case 1:
           state.stream1$.next(newMarble);
@@ -70,16 +70,16 @@ export const useMarbleStore = create<MarbleState>((set) => ({
       }
     });
   },
-  
-  addOutputMarble: (marble) => {
+
+  addOutputMarble: marble => {
     if (!marble || marble.value === undefined) return;
-    set((state) => ({ 
-      outputMarbles: [...state.outputMarbles, marble] 
+    set(state => ({
+      outputMarbles: [...state.outputMarbles, marble],
     }));
   },
 
   emitOutput: (streamId, marble) => {
-    set((state) => {
+    set(state => {
       switch (streamId) {
         case 1:
           state.stream1$.next(marble);
@@ -96,67 +96,68 @@ export const useMarbleStore = create<MarbleState>((set) => ({
       return state;
     });
   },
-  
-  setOperator: (operator) => {
-    set((state) => {
+
+  setOperator: operator => {
+    set(state => {
       state.stream1$.complete();
       state.stream2$.complete();
       state.stream3$.complete();
       resetIndexes();
-      
+
       return {
         currentOperator: operator,
         outputMarbles: [],
         stream1Marbles: [],
         stream2Marbles: [],
         stream3Marbles: [],
-        ...createNewSubjects()
+        ...createNewSubjects(),
       };
     });
   },
-  
-  setSpeed: (speed) => set({ speed }),
-  
+
+  setSpeed: speed => set({ speed }),
+
   clearMarbles: () => {
     resetIndexes();
-    set({ 
+    set({
       stream1Marbles: [],
       stream2Marbles: [],
       stream3Marbles: [],
-      outputMarbles: []
+      outputMarbles: [],
     });
   },
-  
+
   resetPipeline: () => {
-    set((state) => {
+    set(state => {
       state.stream1$.complete();
       state.stream2$.complete();
       state.stream3$.complete();
       resetIndexes();
-      
+
       return {
         ...createNewSubjects(),
         stream1Marbles: [],
         stream2Marbles: [],
         stream3Marbles: [],
-        outputMarbles: []
+        outputMarbles: [],
       };
     });
   },
-  
-  toggleStream3: () => set((state) => {
-    state.stream1$.complete();
-    state.stream2$.complete();
-    state.stream3$.complete();
-    resetIndexes();
-    
-    return {
-      ...createNewSubjects(),
-      isStream3Enabled: !state.isStream3Enabled,
-      stream1Marbles: [],
-      stream2Marbles: [],
-      stream3Marbles: [],
-      outputMarbles: []
-    };
-  })
+
+  toggleStream3: () =>
+    set(state => {
+      state.stream1$.complete();
+      state.stream2$.complete();
+      state.stream3$.complete();
+      resetIndexes();
+
+      return {
+        ...createNewSubjects(),
+        isStream3Enabled: !state.isStream3Enabled,
+        stream1Marbles: [],
+        stream2Marbles: [],
+        stream3Marbles: [],
+        outputMarbles: [],
+      };
+    }),
 }));

@@ -19,17 +19,17 @@ export const StreamMarble: React.FC<StreamMarbleProps> = ({ marble, onCrossLine 
 
     const animate = async () => {
       await controls.start({
-        left: "100%",
+        left: '100%',
         transition: {
           duration: TOTAL_DURATION / speed,
-          ease: "linear"
+          ease: 'linear',
         },
-        onUpdate: (latest) => {
+        onUpdate: latest => {
           if (!hasCrossedLine && latest >= LINE_POSITION) {
             hasCrossedLine = true;
             onCrossLine?.();
           }
-        }
+        },
       });
     };
 
@@ -43,7 +43,7 @@ export const StreamMarble: React.FC<StreamMarbleProps> = ({ marble, onCrossLine 
   return (
     <motion.div
       className="absolute top-1/2 -translate-y-1/2"
-      initial={{ left: "0%" }}
+      initial={{ left: '0%' }}
       animate={controls}
     >
       <div

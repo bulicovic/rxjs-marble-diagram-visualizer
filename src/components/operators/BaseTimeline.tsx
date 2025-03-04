@@ -18,15 +18,13 @@ export const BaseTimeline: React.FC<BaseTimelineProps> = ({
   stream3Marbles,
   outputMarbles,
   operatorName,
-  isStream3Enabled
+  isStream3Enabled,
 }) => {
   return (
     <div className="bg-secondary rounded-lg shadow-banner p-8 space-y-8">
       <Timeline marbles={stream1Marbles} label="Stream 1" streamId={1} />
       <Timeline marbles={stream2Marbles} label="Stream 2" streamId={2} />
-      {isStream3Enabled && (
-        <Timeline marbles={stream3Marbles} label="Stream 3" streamId={3} />
-      )}
+      {isStream3Enabled && <Timeline marbles={stream3Marbles} label="Stream 3" streamId={3} />}
       <OperatorDisplay operator={operatorName} />
       <Timeline marbles={outputMarbles} label="Output" isOutput />
     </div>

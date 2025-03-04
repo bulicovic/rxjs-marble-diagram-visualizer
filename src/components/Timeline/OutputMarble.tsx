@@ -16,16 +16,16 @@ export const OutputMarble: React.FC<OutputMarbleProps> = ({ marble }) => {
   return (
     <motion.div
       className="absolute top-1/2 -translate-y-1/2"
-      initial={{ left: "35%", opacity: 0, scale: 0.5 }}
+      initial={{ left: '35%', opacity: 0, scale: 0.5 }}
       animate={{
-        left: "100%",
+        left: '100%',
         opacity: 1,
         scale: 1,
         transition: {
-          left: { duration: 2.1 / speed, ease: "linear" },
+          left: { duration: 2.1 / speed, ease: 'linear' },
           opacity: { duration: 0.2 },
-          scale: { duration: 0.2 }
-        }
+          scale: { duration: 0.2 },
+        },
       }}
     >
       <div

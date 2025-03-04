@@ -6,7 +6,7 @@ import {
   MergeDisplay,
   CombineLatestDisplay,
   ConcatDisplay,
-  ScanDisplay
+  ScanDisplay,
 } from './operators/displays';
 
 export const OperatorDisplay: React.FC = () => {

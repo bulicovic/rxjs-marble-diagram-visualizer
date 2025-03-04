@@ -14,12 +14,10 @@ export const SpeedControl: React.FC = () => {
         max="3"
         step="0.5"
         value={speed}
-        onChange={(e) => setSpeed(parseFloat(e.target.value))}
+        onChange={e => setSpeed(parseFloat(e.target.value))}
         className="w-24 h-2 bg-border rounded-lg appearance-none cursor-pointer"
       />
-      <span className="text-sm text-text-muted min-w-12">
-        {speed}x
-      </span>
+      <span className="text-sm text-text-muted min-w-12">{speed}x</span>
     </div>
   );
 };

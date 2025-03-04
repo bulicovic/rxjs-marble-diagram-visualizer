@@ -6,7 +6,7 @@ import {
   mergeOperator,
   combineLatestOperator,
   concatOperator,
-  scanOperator
+  scanOperator,
 } from './operators/index';
 
 export const applyOperator = (

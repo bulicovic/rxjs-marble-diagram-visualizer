@@ -4,13 +4,8 @@ import { useMergeStore } from '../../store/operators/mergeStore';
 import { useMergeStream } from '../../hooks/operators/useMergeStream';
 
 export const MergeTimeline: React.FC = () => {
-  const { 
-    stream1Marbles,
-    stream2Marbles,
-    stream3Marbles,
-    outputMarbles,
-    isStream3Enabled
-  } = useMergeStore();
+  const { stream1Marbles, stream2Marbles, stream3Marbles, outputMarbles, isStream3Enabled } =
+    useMergeStore();
 
   useMergeStream();
 

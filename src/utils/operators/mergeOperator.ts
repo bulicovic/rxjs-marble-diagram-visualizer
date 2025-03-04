@@ -9,16 +9,14 @@ export const mergeOperator = (
   isStream3Enabled: boolean,
   speed: number = 1
 ): Observable<Marble> => {
-  const streams = isStream3Enabled 
-    ? [stream1$, stream2$, stream3$]
-    : [stream1$, stream2$];
+  const streams = isStream3Enabled ? [stream1$, stream2$, stream3$] : [stream1$, stream2$];
 
   return merge(...streams).pipe(
     delay(getOperatorDelay(speed)),
     map(marble => ({
       ...marble,
       id: `${marble.id}-merged`,
-      color: 'rgb(34, 197, 94)'
+      color: 'rgb(34, 197, 94)',
     }))
   );
 };

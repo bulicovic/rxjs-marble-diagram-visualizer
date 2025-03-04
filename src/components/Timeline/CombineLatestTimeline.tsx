@@ -15,7 +15,7 @@ export const CombineLatestTimeline: React.FC<TimelineProps> = ({
   marbles = [],
   label,
   streamId,
-  isOutput = false
+  isOutput = false,
 }) => {
   const { isStream3Enabled } = useMarbleStore();
 
@@ -32,9 +32,7 @@ export const CombineLatestTimeline: React.FC<TimelineProps> = ({
 
         {/* Marbles container */}
         <div className="absolute inset-0">
-          {marbles?.map((marble) => (
-            marble && <Marble key={marble.id} marble={marble} />
-          ))}
+          {marbles?.map(marble => marble && <Marble key={marble.id} marble={marble} />)}
         </div>
       </div>
     </div>
